@@ -1,0 +1,4 @@
+# Get the map as a nav_msgs/OccupancyGrid
+string mapname
+---
+nav_msgs/OccupancyGrid map
