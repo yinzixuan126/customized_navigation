@@ -171,7 +171,9 @@ namespace dwa_local_planner {
     critics.push_back(&alignment_costs_); // prefers trajectories that keep the robot nose on nose path
     critics.push_back(&path_costs_); // prefers trajectories on global path
     critics.push_back(&goal_costs_); // prefers trajectories that go towards (local) goal, based on wave propagation
-
+    //path cost and alignment cost是通过将轨迹上的点的cost置位０，其他的地方的越远越大，最终呈现为一个cost function的
+    // local cost map，然后通过累加实现
+    //
     // trajectory generators
     std::vector<base_local_planner::TrajectorySampleGenerator*> generator_list;
     generator_list.push_back(&generator_);
